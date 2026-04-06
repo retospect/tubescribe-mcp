@@ -6,7 +6,6 @@ Wraps ``youtube-transcript-api``.  No API key required.
 from __future__ import annotations
 
 from mcp.server.fastmcp import FastMCP
-
 from tubescribe_mcp.transcript import (
     fetch_transcript,
     list_languages as _list_languages,
@@ -31,7 +30,7 @@ def get_transcript(
 
     Returns plain text transcript.
     """
-    lang_list = [l.strip() for l in languages.split(",") if l.strip()] or None
+    lang_list = [c.strip() for c in languages.split(",") if c.strip()] or None
     return fetch_transcript(video, languages=lang_list, timestamps=timestamps)
 
 
