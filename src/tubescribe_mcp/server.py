@@ -6,6 +6,7 @@ Wraps ``youtube-transcript-api``.  No API key required.
 from __future__ import annotations
 
 from mcp.server.fastmcp import FastMCP
+
 from tubescribe_mcp.transcript import (
     fetch_transcript,
     list_languages as _list_languages,
