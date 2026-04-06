@@ -53,6 +53,9 @@ ignore = [
     "SIM108",
 ]
 
+[tool.ruff.lint.isort]
+known-first-party = ["tubescribe_mcp"]
+
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["B007", "E402", "E731", "E741", "F841", "RUF012", "RUF015", "RUF059", "UP036"]
 "src/**" = ["E402", "F841", "RUF059"]
