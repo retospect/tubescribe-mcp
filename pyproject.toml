@@ -1,0 +1,67 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tubescribe-mcp"
+version = "0.1.0"
+description = "MCP server for fetching YouTube video transcripts"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+requires-python = ">=3.11"
+authors = [{ name = "Reto Stamm", email = "reto@retostamm.com" }]
+keywords = ["mcp", "youtube", "transcript", "subtitles", "tubescribe"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+dependencies = [
+    "mcp>=1.0",
+    "youtube-transcript-api>=1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/retospect/tubescribe-mcp"
+Repository = "https://github.com/retospect/tubescribe-mcp"
+
+[project.scripts]
+tubescribe-mcp = "tubescribe_mcp.server:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.11",
+    "mypy>=1.15",
+    "pre-commit>=4",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tubescribe_mcp"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = [
+    "B008",
+    "E501",
+    "SIM108",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["B007", "E402", "E731", "E741", "F841", "RUF012", "RUF015", "RUF059", "UP036"]
+"src/**" = ["E402", "F841", "RUF059"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_configs = true
+check_untyped_defs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
