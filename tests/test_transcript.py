@@ -22,9 +22,7 @@ class TestExtractVideoId:
 
     def test_watch_url_extra_params(self):
         assert (
-            extract_video_id(
-                "https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=42"
-            )
+            extract_video_id("https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=42")
             == "dQw4w9WgXcQ"
         )
 

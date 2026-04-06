@@ -7,10 +7,8 @@ from __future__ import annotations
 
 from mcp.server.fastmcp import FastMCP
 
-from tubescribe_mcp.transcript import (
-    fetch_transcript,
-    list_languages as _list_languages,
-)
+from tubescribe_mcp.transcript import fetch_transcript
+from tubescribe_mcp.transcript import list_languages as _list_languages
 
 mcp = FastMCP("tubescribe")
 
